@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,29 +22,9 @@
           },
           colors: {
             brand: {
-              50: '#ecfdf5',
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              900: '#064e3b',
-              glow: '#00ff88',
-            },
-            dark: {
-              950: '#070908',
-              900: '#0c120f',
-              850: '#111814',
-              800: '#17221c',
-            }
-          },
-          animation: {
-            'blob-pulse': 'pulse 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+              red: '#dc2626',
+              redHover: '#b91c1c',
+              redLight: '#fef2f2',
             }
           }
         }
@@ -52,774 +32,727 @@
     }
   </script>
   <style>
-    /* Custom Glow & Glass */
-    .glass-panel {
-      background: rgba(17, 24, 20, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .glass-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .glass-card:hover {
-      border-color: rgba(52, 211, 153, 0.4);
-      box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
+    .card-hover:hover {
       transform: translateY(-4px);
+      border-color: #dc2626;
+      box-shadow: 0 16px 32px -8px rgba(220, 38, 38, 0.12);
     }
-    .neon-text-glow {
-      text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-    }
-    /* Hide Scrollbars */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-dark-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-dark-950 min-h-screen relative overflow-x-hidden">
+<body class="bg-slate-50 text-neutral-900 font-sans antialiased selection:bg-red-600 selection:text-white min-h-screen relative overflow-x-hidden">
 
-  <!-- Ambient Background Glows -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-brand-500/10 rounded-full blur-[140px] animate-blob-pulse"></div>
-    <div class="absolute top-[35%] -left-48 w-[400px] h-[400px] bg-emerald-700/10 rounded-full blur-[120px]"></div>
-    <div class="absolute top-[65%] -right-48 w-[500px] h-[500px] bg-teal-600/10 rounded-full blur-[140px]"></div>
-  </div>
-
-  <!-- Announcement Bar -->
-  <div class="relative z-50 bg-dark-900/90 border-b border-white/5 py-2.5 px-4 text-center text-xs font-mono tracking-wider text-emerald-400">
+  <!-- Top Announcement Bar (Tertiary Black + Secondary Red Accent) -->
+  <div class="bg-black text-white text-xs py-2.5 px-4 text-center font-mono tracking-wider border-b border-neutral-800">
     <span class="inline-flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
+      <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
       CPCB CERTIFIED • 100% COMPOSTABLE • ZERO PLASTIC • DIRECT B2B WHOLESALE
     </span>
   </div>
 
-  <!-- Top Navbar -->
-  <nav class="sticky top-0 z-40 glass-panel border-b border-white/10">
+  <!-- Navbar (Primary White + Black Text + Red CTA) -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center font-black text-dark-950 text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition">
+        <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center font-black text-white text-xl shadow-md group-hover:bg-red-600 transition">
           T
         </div>
         <div class="flex flex-col">
-          <span class="text-2xl font-extrabold tracking-tighter text-white group-hover:text-emerald-300 transition">TERRESA</span>
-          <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase">Packaging Systems</span>
+          <span class="text-2xl font-black tracking-tighter text-black">TERRESA</span>
+          <span class="text-[9px] font-mono tracking-widest text-red-600 uppercase font-bold">Packaging Systems</span>
         </div>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#catalog" class="hover:text-brand-400 transition">Products</a>
-        <a href="#matrix" class="hover:text-brand-400 transition">Material Specs</a>
-        <a href="#why-terresa" class="hover:text-brand-400 transition">Why Us</a>
-        <a href="#compliance" class="hover:text-brand-400 transition">Compliance</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-700">
+        <a href="#catalog" class="hover:text-red-600 transition">Catalog</a>
+        <a href="#matrix" class="hover:text-red-600 transition">Material Specs</a>
+        <a href="#why-terresa" class="hover:text-red-600 transition">Why Us</a>
+        <a href="#compliance" class="hover:text-red-600 transition">Compliance</a>
       </div>
 
       <!-- Action Button -->
       <div class="flex items-center gap-3">
-        <button onclick="openSampleModal('Full Packaging Kit')" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs sm:text-sm font-semibold rounded-xl group bg-gradient-to-r from-brand-500 to-teal-400 text-dark-950 shadow-md shadow-brand-500/20 hover:scale-[1.02] active:scale-[0.98] transition">
-          <span class="px-4 sm:px-5 py-2.5 rounded-[10px] bg-brand-400 group-hover:bg-opacity-90 font-bold transition">
-            Request Sample Box
-          </span>
+        <button onclick="openSampleModal('Full Commercial Kit')" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-red-600/20 hover:scale-[1.02] active:scale-[0.98] transition">
+          Request Sample Box
         </button>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative z-10 pt-20 pb-20 px-6 max-w-6xl mx-auto text-center">
+  <section class="py-20 px-6 max-w-6xl mx-auto text-center">
     <!-- Top Pill -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-brand-500/30 text-emerald-300 text-xs font-mono mb-8">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-mono mb-8 font-semibold">
       <span>⚡ Commercial Grade Packaging</span>
-      <span class="text-slate-600">•</span>
-      <span class="text-slate-300">Heat Tolerant Up to 120°C</span>
+      <span class="text-neutral-400">•</span>
+      <span class="text-neutral-700">Heat Tolerant Up to 120°C</span>
     </div>
 
-    <!-- Main Title -->
-    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-black leading-[1.08]">
       Ditch Plastic. Zero Leaks.<br />
-      <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-brand-glow bg-clip-text text-transparent neon-text-glow">
-        Uncompromising Strength.
+      <span class="text-red-600 underline decoration-red-200 underline-offset-8">
+        Built for Heavy Deliveries.
       </span>
     </h1>
 
-    <p class="mt-8 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-      Engineered for delivery kitchens, cafes, and catering powerhouses. Rigorous plant-pulp and cornstarch vessels designed to lock in scalding gravies, curries, and biryanis with <strong class="text-slate-200">zero soggy bottoms</strong>.
+    <p class="mt-8 text-neutral-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+      Engineered for delivery cloud kitchens, cafes, and catering powerhouses. Rigid plant-pulp, cornstarch, and kraft vessels built to secure scalding gravies and biryanis with <strong class="text-black font-bold">zero soggy bottoms</strong>.
     </p>
 
     <!-- CTAs -->
     <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-      <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-sm shadow-xl shadow-brand-500/25 transition">
+      <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm shadow-xl shadow-red-600/25 transition">
         Browse 25+ Commercial SKUs
       </a>
-      <a href="https://wa.me/919800000000?text=Hi%20Terresa%2C%20I%20want%20to%20review%20wholesale%20rates%20for%20packaging." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel hover:bg-white/10 text-white font-semibold text-sm border border-white/10 flex items-center justify-center gap-2.5 transition">
-        <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      <a href="https://wa.me/919800000000?text=Hi%20Terresa%2C%20I%20want%20to%20review%20wholesale%20rates%20for%20packaging." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-neutral-100 text-black font-semibold text-sm border border-neutral-300 shadow-sm flex items-center justify-center gap-2.5 transition">
+        <span class="text-base">💬</span>
         <span>Wholesale WhatsApp Desk</span>
       </a>
     </div>
 
-    <!-- Quick Stats Grid -->
+    <!-- Stats Grid (Tertiary Black & Clean White Cards) -->
     <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto font-mono">
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-bold text-brand-400">120°C</div>
-        <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider">Microwave Tolerant</div>
+      <div class="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm">
+        <div class="text-2xl sm:text-3xl font-extrabold text-red-600">120°C</div>
+        <div class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Microwave Safe</div>
       </div>
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-bold text-brand-400">100%</div>
-        <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider">Plant Sourced</div>
+      <div class="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm">
+        <div class="text-2xl sm:text-3xl font-extrabold text-black">100%</div>
+        <div class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Plant Sourced</div>
       </div>
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-bold text-brand-400">0%</div>
-        <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider">Plastic / PLA Liners</div>
+      <div class="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm">
+        <div class="text-2xl sm:text-3xl font-extrabold text-black">0%</div>
+        <div class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Plastic / Liners</div>
       </div>
-      <div class="glass-card p-4 rounded-2xl">
-        <div class="text-2xl sm:text-3xl font-bold text-brand-400">24-48h</div>
-        <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider">Metro Dispatch</div>
+      <div class="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm">
+        <div class="text-2xl sm:text-3xl font-extrabold text-red-600">24-48h</div>
+        <div class="text-[11px] text-neutral-500 mt-1 uppercase tracking-wider font-semibold">Metro Dispatch</div>
       </div>
     </div>
   </section>
 
   <!-- Interactive Catalog Section -->
-  <section id="catalog" class="relative z-10 py-16 px-6 max-w-7xl mx-auto border-t border-white/5">
+  <section id="catalog" class="py-16 px-6 max-w-7xl mx-auto border-t border-neutral-200">
     
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
       <div>
-        <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">// Commercial Inventory</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Precision Packaging Catalog</h2>
+        <span class="text-xs font-mono text-red-600 uppercase tracking-wider font-bold">// Commercial Inventory</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-black mt-1">Wholesale Product Catalog</h2>
       </div>
-      <p class="text-slate-400 text-sm mt-3 md:mt-0 max-w-sm">
-        Select a material category below to filter our certified commercial fleet.
+      <p class="text-neutral-500 text-sm mt-3 md:mt-0 max-w-sm">
+        Filter by material to view technical specs, case sizes, and request free sample boxes.
       </p>
     </div>
 
-    <!-- Material Category Filter Tabs -->
+    <!-- Category Filter Tabs -->
     <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-      <button onclick="filterCatalog('all', this)" class="tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-brand-500 text-dark-950 shadow-md shadow-brand-500/20">
+      <button onclick="filterCatalog('all', this)" class="tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-red-600 text-white shadow-md shadow-red-600/20">
         All Products (25)
       </button>
-      <button onclick="filterCatalog('bagasse', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap glass-panel text-slate-300 hover:text-white hover:border-brand-500/40">
-        🌱 Sugarcane Bagasse (6)
+      <button onclick="filterCatalog('bagasse', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-white border border-neutral-200 text-neutral-700 hover:border-red-400">
+        Sugarcane Bagasse (6)
       </button>
-      <button onclick="filterCatalog('cornstarch', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap glass-panel text-slate-300 hover:text-white hover:border-brand-500/40">
-        🌽 Cornstarch PLA (6)
+      <button onclick="filterCatalog('cornstarch', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-white border border-neutral-200 text-neutral-700 hover:border-red-400">
+        Cornstarch PLA (6)
       </button>
-      <button onclick="filterCatalog('kraft', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap glass-panel text-slate-300 hover:text-white hover:border-brand-500/40">
-        📦 Kraft Paper (4)
+      <button onclick="filterCatalog('kraft', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-white border border-neutral-200 text-neutral-700 hover:border-red-400">
+        Kraft Paper (4)
       </button>
-      <button onclick="filterCatalog('white-paper', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap glass-panel text-slate-300 hover:text-white hover:border-brand-500/40">
-        📄 White Paper (4)
+      <button onclick="filterCatalog('white-paper', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-white border border-neutral-200 text-neutral-700 hover:border-red-400">
+        White Paper (4)
       </button>
-      <button onclick="filterCatalog('wooden', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap glass-panel text-slate-300 hover:text-white hover:border-brand-500/40">
-        🪵 Wooden Cutlery (5)
+      <button onclick="filterCatalog('wooden', this)" class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition whitespace-nowrap bg-white border border-neutral-200 text-neutral-700 hover:border-red-400">
+        Wooden Cutlery (5)
       </button>
     </div>
 
-    <!-- The 25 Product Grid -->
+    <!-- The 25 Products Grid -->
     <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- ================= 1. BAGASSE (6 Items) ================= -->
-      <!-- Item 1 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥡</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥡</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Clamshell Hinged Boxes</h3>
-          <p class="text-xs text-slate-400 mt-2">Heavyweight burger and combo meal boxes with secure snap-lock.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Sizes: 6"x6", 9"x6", 9"x9"</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Single & 3-Compartment splits</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Clamshell Hinged Boxes</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Heavyweight single and multi-compartment hinged meal & burger boxes.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 6"x6", 9"x6", 9"x9" Dimensions</li>
+            <li>✓ Single & 3-Compartment options</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Bagasse Clamshell Boxes')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Bagasse Clamshell Boxes')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 2 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥣</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥣</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Round Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Zero-leak circular vessels tailored for scalding gravies, dal, and rice.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Capacities: 250ml, 500ml, 750ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Spill-proof matching lids</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Round Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Spill-proof round bowls engineered for scalding gravies, dal, and noodles.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 250ml, 500ml, 750ml Capacities</li>
+            <li>✓ Snug-fit zero-leak seal</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Bagasse Round Container with Lid')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Bagasse Round Container with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 3 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🔲</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🔲</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Square Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Space-optimized stackable square bowls for desserts, salads, and sides.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Tight perimeter rim lock</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>No oily flavor leaching</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Square Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Stackable square bowls for desserts, appetizers, and signature snacks.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Space-saving nesting design</li>
+            <li>✓ High perimeter crush resistance</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Bagasse Square Containers with Lid')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Bagasse Square Containers with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 4 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍱</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍱</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Flat Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Shallow wide-base design for artisanal bakery items, cut fruits, and dry grills.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Premium matte aesthetic</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Clear or bagasse lid options</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Flat Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Low-profile shallow design for bakery, grilled skewers, and dry snacks.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Wide presentation surface</li>
+            <li>✓ Matching bagasse & clear lid options</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Bagasse Flat Containers with Lid')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Bagasse Flat Containers with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 5 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">📦</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">📦</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Rectangle Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Workhorse delivery box for biryanis, Hakka noodles, and gourmet combos.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>500ml, 750ml, 1000ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Rigid sidewall compression</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Rectangle Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Commercial standard for biryanis, pasta, and combo delivery boxes.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 500ml, 750ml, 1000ml Sizes</li>
+            <li>✓ Rigid sidewalls that won't bow out</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Bagasse Rectangle Container with Lid')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Bagasse Rectangle Container with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 6 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="bagasse">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="bagasse">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍽️</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍽️</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-emerald-400 font-semibold tracking-wider uppercase">Sugarcane Bagasse</span>
-          <h3 class="text-lg font-bold text-white mt-1">Plates & Meal Trays</h3>
-          <p class="text-xs text-slate-400 mt-2">Executive segmented thalis for corporate lunches and QSR dining.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>3, 4 & 5 Compartments</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Zero gravy crossing barriers</span></li>
+          <span class="text-[10px] font-mono text-red-600 font-bold uppercase tracking-wider">Sugarcane Bagasse</span>
+          <h3 class="text-lg font-bold text-black mt-1">Plates & Meal Trays</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Multi-compartment thali meal trays for corporate lunches and QSR dining.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 3, 4 & 5 Compartment Layouts</li>
+            <li>✓ High divider ridge prevents mixing</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 400 pcs</span>
-          <button onclick="openSampleModal('Bagasse Plates and Meal Trays')" class="text-xs font-bold text-brand-400 hover:text-brand-300 py-1.5 px-3 rounded-lg bg-brand-500/10 border border-brand-500/20 hover:bg-brand-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 400 pcs</span>
+          <button onclick="openSampleModal('Bagasse Plates and Meal Trays')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
       <!-- ================= 2. CORNSTARCH (6 Items) ================= -->
-      <!-- Item 7 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🌽</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🌽</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Cornstarch Bowls</h3>
-          <p class="text-xs text-slate-400 mt-2">Silky-smooth finish plant polymer bowls for hot and cold treats.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>150ml, 300ml, 500ml, 650ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Smooth high-clarity feel</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Cornstarch Bowls</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Silk-smooth plant-derived bowls suitable for piping hot soups & desserts.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 150ml, 300ml, 500ml, 650ml</li>
+            <li>✓ Oil-resistant gloss surface</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Bowls')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Bowls')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 8 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥣</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥣</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Round Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Crystal clear, ultra-durable plant-based takeaway jars and containers.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>350ml & 500ml models</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Snap-secure groove rim</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Round Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">High rigidity takeaway tubs with airtight perimeter snap closures.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 350ml & 500ml models</li>
+            <li>✓ High heat & freezer stability</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Round Container with Lid')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Round Container with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 9 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">📦</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">📦</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Rectangle Containers with Lid</h3>
-          <p class="text-xs text-slate-400 mt-2">Rigid plant-starch tubs built to resist heavy delivery bike transit.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>500ml, 750ml, 1000ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Stackable nesting corners</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Rectangle Containers with Lid</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Sturdy rectangular meal delivery tubs that survive heavy bike dispatch.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 500ml, 750ml, 1000ml</li>
+            <li>✓ Reinforced perimeter corners</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Rectangle Containers with Lid')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Rectangle Containers with Lid')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 10 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍴</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍴</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Cornstarch Cutlery</h3>
-          <p class="text-xs text-slate-400 mt-2">Non-flexible spoons and forks engineered from reinforced plant starch.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>160mm Heavy-Duty spoons</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Smooth, zero-splinter touch</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Cornstarch Cutlery</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Rigid non-bendable plant spoons and forks with comfortable grip.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 160mm Heavy-Duty Spoons</li>
+            <li>✓ Zero splintering / odor free</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 1000 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Cutlery')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 1000 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Cutlery')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 11 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍔</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍔</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Cornstarch Clamshell</h3>
-          <p class="text-xs text-slate-400 mt-2">Hinged snap-shut burger and roll containers with moisture venting.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>6"x6" & 9"x6" Clamshell</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Heat retaining insulator</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Cornstarch Clamshell</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Hinged takeaway boxes for burgers, wraps, and french fries.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 6"x6" & 9"x6" Dimensions</li>
+            <li>✓ Dual locking tab system</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Clamshell')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Clamshell')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 12 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="cornstarch">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="cornstarch">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍽️</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍽️</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-amber-400 font-semibold tracking-wider uppercase">Cornstarch PLA</span>
-          <h3 class="text-lg font-bold text-white mt-1">Plates & Meal Trays</h3>
-          <p class="text-xs text-slate-400 mt-2">Smooth divided plates designed for high-end buffet and meal box setups.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>No oily saturation</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Reinforced structural ribs</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Cornstarch PLA</span>
+          <h3 class="text-lg font-bold text-black mt-1">Plates & Meal Trays</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Divided buffet trays and dinner plates engineered with structural ribs.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ High oil load capacity</li>
+            <li>✓ Zero soggy base warpage</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 400 pcs</span>
-          <button onclick="openSampleModal('Cornstarch Plates & Meal Trays')" class="text-xs font-bold text-amber-400 hover:text-amber-300 py-1.5 px-3 rounded-lg bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 400 pcs</span>
+          <button onclick="openSampleModal('Cornstarch Plates & Meal Trays')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
       <!-- ================= 3. KRAFT PAPER (4 Items) ================= -->
-      <!-- Item 13 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="kraft">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="kraft">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-yellow-600/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥡</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥡</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-yellow-400 font-semibold tracking-wider uppercase">Kraft Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">Kraft Round Containers</h3>
-          <p class="text-xs text-slate-400 mt-2">Natural brown kraft tubs with interior aqueous grease resistant seal.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Aesthetic organic look</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Fits PP / Paper vented lids</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Kraft Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">Kraft Round Containers</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Earthy brown kraft tubs with interior liquid barriers for gravies & curries.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Natural rustic aesthetic</li>
+            <li>✓ Vented lid compatibility</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Kraft Round Containers')" class="text-xs font-bold text-yellow-400 hover:text-yellow-300 py-1.5 px-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 hover:bg-yellow-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Kraft Round Containers')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 14 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="kraft">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="kraft">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-yellow-600/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥤</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥤</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-yellow-400 font-semibold tracking-wider uppercase">Kraft Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">Kraft Tall Containers</h3>
-          <p class="text-xs text-slate-400 mt-2">High-depth kraft tubs engineered for ramen, broths, and pasta portions.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Double-wall heat insulation</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>No burning hands during carry</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Kraft Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">Kraft Tall Containers</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Deep-fill kraft containers for ramen, noodles, and piping hot soups.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Double-wall thermal comfort</li>
+            <li>✓ Safe handling with hot broths</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Kraft Tall Containers')" class="text-xs font-bold text-yellow-400 hover:text-yellow-300 py-1.5 px-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 hover:bg-yellow-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Kraft Tall Containers')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 15 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="kraft">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="kraft">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-yellow-600/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥗</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥗</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-yellow-400 font-semibold tracking-wider uppercase">Kraft Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">Kraft Salad Bowls</h3>
-          <p class="text-xs text-slate-400 mt-2">148 Dia wide bowls designed for salad bars, poke bowls, and cold pasta.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>500ml, 750ml, 1000ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Ultra-clear PET/PLA snap lid</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Kraft Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">Kraft Salad Bowls</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Wide 148 Dia presentation bowls paired with crystal clear lids.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 500ml, 750ml, 1000ml Sizes</li>
+            <li>✓ Anti-fog PET / PLA lid fit</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Kraft Salad Bowls')" class="text-xs font-bold text-yellow-400 hover:text-yellow-300 py-1.5 px-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 hover:bg-yellow-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Kraft Salad Bowls')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 16 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="kraft">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="kraft">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-yellow-600/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">📦</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">📦</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-yellow-400 font-semibold tracking-wider uppercase">Kraft Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">Kraft Takeaway Boxes</h3>
-          <p class="text-xs text-slate-400 mt-2">Tab-lock foldout food boxes for fried chicken, momos, rolls, and fries.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>500ml, 750ml, 1000ml</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Leak-proof folded leak corners</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Kraft Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">Kraft Takeaway Boxes</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Folded tab-lock cartons for fried chicken, momos, rolls, and fries.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 500ml, 750ml, 1000ml</li>
+            <li>✓ Leak-resistant pre-folded corners</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('Kraft Food Boxes')" class="text-xs font-bold text-yellow-400 hover:text-yellow-300 py-1.5 px-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 hover:bg-yellow-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('Kraft Food Boxes')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
       <!-- ================= 4. WHITE PAPER (4 Items) ================= -->
-      <!-- Item 17 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="white-paper">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="white-paper">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥣</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥣</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-blue-400 font-semibold tracking-wider uppercase">White Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">White Round Containers</h3>
-          <p class="text-xs text-slate-400 mt-2">Crisp, clean white aesthetic for artisanal cafes and dairy desserts.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Greaseproof poly coating</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Ultra-tight curled rim</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">White Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">White Round Containers</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Pristine white food-grade paper containers for ice creams, yogurt, and curries.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Greaseproof poly-free barrier</li>
+            <li>✓ Uniform curled rim</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('White Paper Round Containers')" class="text-xs font-bold text-blue-400 hover:text-blue-300 py-1.5 px-3 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('White Paper Round Containers')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 18 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="white-paper">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="white-paper">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥤</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥤</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-blue-400 font-semibold tracking-wider uppercase">White Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">White Tall Containers</h3>
-          <p class="text-xs text-slate-400 mt-2">Deep white tubs for noodles, hot broths, and ice creams.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>No structural softening</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Matching vented white lids</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">White Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">White Tall Containers</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Tall white cups for gravies, noodles, broths, and high-volume desserts.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ High temperature tolerance</li>
+            <li>✓ Fits matching white paper lids</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('White Paper Tall Containers')" class="text-xs font-bold text-blue-400 hover:text-blue-300 py-1.5 px-3 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('White Paper Tall Containers')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 19 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="white-paper">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="white-paper">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥗</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥗</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-blue-400 font-semibold tracking-wider uppercase">White Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">White Salad Bowls</h3>
-          <p class="text-xs text-slate-400 mt-2">Hospital-grade clean white bowls for premium salad presentations.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Wide viewing surface</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Anti-fog crystal clear lids</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">White Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">White Salad Bowls</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Hospital-grade clean white bowls for premium salads and cold pasta.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Broad plating aperture</li>
+            <li>✓ Crystal transparent anti-fog lids</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('White Paper Salad Bowls')" class="text-xs font-bold text-blue-400 hover:text-blue-300 py-1.5 px-3 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('White Paper Salad Bowls')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 20 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="white-paper">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="white-paper">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">📦</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full">18% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">📦</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-red-600 text-white font-bold px-2 py-0.5 rounded-md">18% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-blue-400 font-semibold tracking-wider uppercase">White Paper</span>
-          <h3 class="text-lg font-bold text-white mt-1">White Paper Boxes</h3>
-          <p class="text-xs text-slate-400 mt-2">Fold-locked takeaway boxes for confectioneries, buns, and fries.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>Custom stamp & sticker ready</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Quick flat-pack storage</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">White Paper</span>
+          <h3 class="text-lg font-bold text-black mt-1">White Paper Boxes</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Folded lock boxes for gourmet bakery, fries, chicken tenders, and rolls.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ Custom branding ready</li>
+            <li>✓ Compact flat-pack storage</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 500 pcs</span>
-          <button onclick="openSampleModal('White Paper Boxes')" class="text-xs font-bold text-blue-400 hover:text-blue-300 py-1.5 px-3 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 500 pcs</span>
+          <button onclick="openSampleModal('White Paper Boxes')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
       <!-- ================= 5. WOODEN CUTLERY (5 Items) ================= -->
-      <!-- Item 21 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="wooden">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="wooden">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-stone-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🥄</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-stone-500/10 text-stone-300 border border-stone-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🥄</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-stone-300 font-semibold tracking-wider uppercase">Birchwood Cutlery</span>
-          <h3 class="text-lg font-bold text-white mt-1">Wooden Spoons</h3>
-          <p class="text-xs text-slate-400 mt-2">Smooth-polished birchwood spoons with zero wood splinters.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>14cm & 16cm lengths</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Hot soup & ice cream ready</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Birchwood Cutlery</span>
+          <h3 class="text-lg font-bold text-black mt-1">Wooden Spoons</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Smooth sanded birchwood spoons. Guaranteed 100% splinter-free.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 14cm & 16cm Lengths</li>
+            <li>✓ Ideal for hot curries & ice creams</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 1000 pcs</span>
-          <button onclick="openSampleModal('Wooden Spoons')" class="text-xs font-bold text-stone-300 hover:text-white py-1.5 px-3 rounded-lg bg-stone-500/10 border border-stone-500/20 hover:bg-stone-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 1000 pcs</span>
+          <button onclick="openSampleModal('Wooden Spoons')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 22 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="wooden">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="wooden">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-stone-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍴</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-stone-500/10 text-stone-300 border border-stone-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍴</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-stone-300 font-semibold tracking-wider uppercase">Birchwood Cutlery</span>
-          <h3 class="text-lg font-bold text-white mt-1">Wooden Forks</h3>
-          <p class="text-xs text-slate-400 mt-2">Rigid tines that pierce through noodles, salads, and meats effortlessly.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>14cm & 16cm models</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Zero chemical bleaching</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Birchwood Cutlery</span>
+          <h3 class="text-lg font-bold text-black mt-1">Wooden Forks</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Rigid tines that handle heavy noodles, salads, and meats with ease.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 14cm & 16cm Variants</li>
+            <li>✓ Zero chemical coating</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 1000 pcs</span>
-          <button onclick="openSampleModal('Wooden Forks')" class="text-xs font-bold text-stone-300 hover:text-white py-1.5 px-3 rounded-lg bg-stone-500/10 border border-stone-500/20 hover:bg-stone-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 1000 pcs</span>
+          <button onclick="openSampleModal('Wooden Forks')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 23 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="wooden">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="wooden">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-stone-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🍴</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-stone-500/10 text-stone-300 border border-stone-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🍴</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-stone-300 font-semibold tracking-wider uppercase">Birchwood Cutlery</span>
-          <h3 class="text-lg font-bold text-white mt-1">Wooden Sporks</h3>
-          <p class="text-xs text-slate-400 mt-2">Versatile 2-in-1 hybrid utensil to cut your takeaway packaging inventory in half.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>16cm Standard heavy</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Ideal for combo bowls</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Birchwood Cutlery</span>
+          <h3 class="text-lg font-bold text-black mt-1">Wooden Sporks</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Versatile 2-in-1 hybrid utensil to cut kitchen packaging costs.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 16cm Standard heavy</li>
+            <li>✓ High fracture resistance</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 1000 pcs</span>
-          <button onclick="openSampleModal('Wooden Sporks')" class="text-xs font-bold text-stone-300 hover:text-white py-1.5 px-3 rounded-lg bg-stone-500/10 border border-stone-500/20 hover:bg-stone-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 1000 pcs</span>
+          <button onclick="openSampleModal('Wooden Sporks')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 24 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="wooden">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="wooden">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-stone-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">🔪</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-stone-500/10 text-stone-300 border border-stone-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">🔪</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-stone-300 font-semibold tracking-wider uppercase">Birchwood Cutlery</span>
-          <h3 class="text-lg font-bold text-white mt-1">Wooden Knives</h3>
-          <p class="text-xs text-slate-400 mt-2">Serrated wooden blade engineered for cutting pancakes, butter, and baked goods.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>16cm Precision serrated</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>High snap resistance</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Birchwood Cutlery</span>
+          <h3 class="text-lg font-bold text-black mt-1">Wooden Knives</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Serrated birchwood blade for cutting baked treats, butter, and sandwiches.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 16cm Precision serrated</li>
+            <li>✓ Snaps cleanly with no sharp fibers</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 1000 pcs</span>
-          <button onclick="openSampleModal('Wooden Knives')" class="text-xs font-bold text-stone-300 hover:text-white py-1.5 px-3 rounded-lg bg-stone-500/10 border border-stone-500/20 hover:bg-stone-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 1000 pcs</span>
+          <button onclick="openSampleModal('Wooden Knives')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
       </div>
 
-      <!-- Item 25 -->
-      <div class="product-item glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300" data-cat="wooden">
+      <div class="product-item card-hover bg-white border border-neutral-200 rounded-2xl p-6 flex flex-col justify-between" data-cat="wooden">
         <div>
-          <div class="h-40 rounded-xl bg-dark-900/80 border border-white/5 flex flex-col items-center justify-center text-slate-500 mb-5 relative group overflow-hidden">
-            <div class="w-16 h-16 rounded-full bg-stone-500/10 flex items-center justify-center text-2xl group-hover:scale-110 transition">☕</div>
-            <span class="text-[10px] font-mono text-slate-400 mt-2 uppercase tracking-widest">[Image Placeholder]</span>
-            <span class="absolute top-3 right-3 text-[10px] font-mono bg-stone-500/10 text-stone-300 border border-stone-500/20 px-2 py-0.5 rounded-full">5% GST</span>
+          <div class="h-40 rounded-xl bg-neutral-100 border border-neutral-200 flex flex-col items-center justify-center text-neutral-400 mb-5 relative overflow-hidden">
+            <span class="text-3xl mb-1">☕</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">[Photo Placeholder]</span>
+            <span class="absolute top-3 right-3 text-[10px] font-mono bg-neutral-900 text-white font-bold px-2 py-0.5 rounded-md">5% GST</span>
           </div>
-          <span class="text-[10px] font-mono text-stone-300 font-semibold tracking-wider uppercase">Birchwood Cutlery</span>
-          <h3 class="text-lg font-bold text-white mt-1">Wooden Stirrers</h3>
-          <p class="text-xs text-slate-400 mt-2">Smooth round-tip coffee and cocktail stirrers for cafes and kiosks.</p>
-          <ul class="text-xs text-slate-400 mt-4 space-y-1.5 font-mono">
-            <li class="flex items-center gap-1.5">✓ <span>140mm & 178mm sizes</span></li>
-            <li class="flex items-center gap-1.5">✓ <span>Zero wood taste in coffee</span></li>
+          <span class="text-[10px] font-mono text-neutral-800 font-bold uppercase tracking-wider">Birchwood Cutlery</span>
+          <h3 class="text-lg font-bold text-black mt-1">Wooden Stirrers</h3>
+          <p class="text-xs text-neutral-500 mt-2 leading-relaxed">Round-edge coffee and beverage stirrers for cafes and specialty kiosks.</p>
+          <ul class="text-xs text-neutral-600 mt-4 space-y-1.5 font-mono">
+            <li>✓ 140mm & 178mm sizes</li>
+            <li>✓ Imparts zero wooden aftertaste</li>
           </ul>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="text-[11px] font-mono text-slate-500">MOQ: 2000 pcs</span>
-          <button onclick="openSampleModal('Wooden Stirrers')" class="text-xs font-bold text-stone-300 hover:text-white py-1.5 px-3 rounded-lg bg-stone-500/10 border border-stone-500/20 hover:bg-stone-500/20 transition">
+        <div class="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-neutral-400">MOQ: 2000 pcs</span>
+          <button onclick="openSampleModal('Wooden Stirrers')" class="text-xs font-bold text-red-600 hover:text-white py-1.5 px-3 rounded-lg border border-red-200 hover:bg-red-600 transition">
             Request Sample →
           </button>
         </div>
@@ -828,75 +761,73 @@
     </div>
   </section>
 
-  <!-- Technical Specs & Proof Matrix -->
-  <section id="matrix" class="py-20 px-6 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+  <!-- Technical Specs Matrix -->
+  <section id="matrix" class="py-20 px-6 max-w-6xl mx-auto border-t border-neutral-200">
     <div class="text-center mb-16">
-      <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">// Commercial Durability</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Engineered For Commercial Realities</h2>
-      <p class="text-slate-400 text-sm mt-3 max-w-xl mx-auto">
-        Most paper boxes fail within 15 minutes of boiling curry contact. Terresa products are stress-tested against the highest humidity and transit forces.
+      <span class="text-xs font-mono text-red-600 uppercase tracking-widest font-bold">// Commercial Durability</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-black mt-1">Engineered For Harsh Deliveries</h2>
+      <p class="text-neutral-500 text-sm mt-3 max-w-xl mx-auto">
+        Most cheap paper boxes fail within 15 minutes of boiling curry contact. Terresa vessels are stress-tested against steam, oil, and transport vibration.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="glass-card p-8 rounded-2xl border-l-2 border-l-brand-400">
+      <div class="bg-white border-t-4 border-red-600 p-8 rounded-2xl border border-neutral-200 shadow-sm">
         <div class="text-3xl mb-4">🛡️</div>
-        <h3 class="text-lg font-bold text-white">4-Hour Liquid Barrier</h3>
-        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+        <h3 class="text-lg font-bold text-black">4-Hour Liquid Barrier</h3>
+        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
           Dense cellulose interlocking structure repels boiling oil and scalding gravies without allowing liquid molecules to seep through into the packaging base.
         </p>
       </div>
 
-      <div class="glass-card p-8 rounded-2xl border-l-2 border-l-teal-400">
+      <div class="bg-white border-t-4 border-black p-8 rounded-2xl border border-neutral-200 shadow-sm">
         <div class="text-3xl mb-4">♨️</div>
-        <h3 class="text-lg font-bold text-white">Microwave Safe to 120°C</h3>
-        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-          Zero microplastic contamination. Customers can place the container directly into standard microwaves and ovens without toxic odors, off-gassing, or shape warps.
+        <h3 class="text-lg font-bold text-black">Microwave Safe to 120°C</h3>
+        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
+          Zero microplastic contamination. Customers can place the container directly into standard microwaves and ovens without toxic odors or structural collapse.
         </p>
       </div>
 
-      <div class="glass-card p-8 rounded-2xl border-l-2 border-l-emerald-300">
+      <div class="bg-white border-t-4 border-red-600 p-8 rounded-2xl border border-neutral-200 shadow-sm">
         <div class="text-3xl mb-4">⚖️</div>
-        <h3 class="text-lg font-bold text-white">100% Legal & CPCB Certified</h3>
-        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+        <h3 class="text-lg font-bold text-black">100% Legal & CPCB Certified</h3>
+        <p class="text-xs text-neutral-500 mt-2 leading-relaxed">
           Full compliance with Central Pollution Control Board guidelines and ISO 17088 standards. Zero legal risk of municipal spot fines or kitchen sealings.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Direct CTA Banner -->
-  <section class="py-16 px-6 max-w-6xl mx-auto relative z-10">
-    <div class="glass-panel p-10 sm:p-14 rounded-3xl border border-brand-500/30 text-center relative overflow-hidden">
-      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <span class="text-xs font-mono text-brand-400 uppercase tracking-wider">Zero Risk Test</span>
+  <!-- Lead Capture Banner (Tertiary Black + Secondary Red Action) -->
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="bg-black text-white p-10 sm:p-14 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+      <span class="text-xs font-mono text-red-500 uppercase tracking-wider font-bold">// Zero Risk Testing</span>
       <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Test Terresa in Your Kitchen</h2>
-      <p class="text-slate-300 text-sm sm:text-base mt-4 max-w-xl mx-auto leading-relaxed">
+      <p class="text-neutral-400 text-sm sm:text-base mt-4 max-w-xl mx-auto leading-relaxed">
         Let your head chefs put our containers to work with your hottest curries, oils, and transport conditions. We dispatch sample kits directly to your outlet.
       </p>
 
       <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-        <button onclick="openSampleModal('Commercial Sample Pack')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-sm shadow-xl shadow-brand-500/20 transition">
+        <button onclick="openSampleModal('Commercial Sample Pack')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm shadow-xl shadow-red-600/30 transition">
           Dispatch Sample Kit to Kitchen
         </button>
-        <a href="tel:+919800000000" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-sm hover:bg-white/10 transition">
+        <a href="tel:+919800000000" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-neutral-900 border border-neutral-800 text-white font-semibold text-sm hover:bg-neutral-800 transition">
           Call Wholesale Desk (+91 98XXX XXXXX)
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 bg-dark-950 py-12 px-6 relative z-10 text-xs text-slate-500 font-mono">
+  <!-- Footer (Tertiary Black) -->
+  <footer class="border-t border-neutral-800 bg-black py-12 px-6 text-xs text-neutral-400 font-mono">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center font-bold text-dark-950 text-sm">T</div>
+        <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center font-bold text-white text-sm">T</div>
         <div>
           <span class="text-white font-bold tracking-tight">TERRESA</span> • Sustainable Packaging Systems
         </div>
       </div>
-      <div class="flex flex-wrap gap-6 text-slate-400">
+      <div class="flex flex-wrap gap-6 text-neutral-400">
         <span>CPCB Certified</span>
         <span>ISO 17088</span>
         <span>Food Grade Standard</span>
@@ -906,41 +837,41 @@
     </div>
   </footer>
 
-  <!-- ================= INTERACTIVE SAMPLE MODAL ================= -->
-  <div id="sample-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-    <div class="glass-panel w-full max-w-lg rounded-3xl p-8 border border-white/10 relative transform scale-95 transition-transform duration-300" id="modal-box">
+  <!-- ================= INTERACTIVE SAMPLE MODAL (Primary White) ================= -->
+  <div id="sample-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white border border-neutral-200 w-full max-w-lg rounded-3xl p-8 relative transform scale-95 transition-transform duration-300 shadow-2xl" id="modal-box">
       
       <!-- Close Button -->
-      <button onclick="closeSampleModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl p-1">
+      <button onclick="closeSampleModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-black text-xl p-1 font-bold">
         ✕
       </button>
 
-      <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">// Direct Dispatch Desk</span>
-      <h3 class="text-2xl font-extrabold text-white mt-1">Request Sample Box</h3>
-      <p class="text-xs text-slate-400 mt-1">Test live containers in your kitchen before placing bulk orders.</p>
+      <span class="text-[10px] font-mono text-red-600 uppercase tracking-widest font-bold">// Direct Dispatch Desk</span>
+      <h3 class="text-2xl font-extrabold text-black mt-1">Request Sample Box</h3>
+      <p class="text-xs text-neutral-500 mt-1">Test live containers in your kitchen before placing bulk orders.</p>
 
       <form onsubmit="handleModalSubmit(event)" class="mt-6 space-y-4">
         <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">Selected Product SKU</label>
-          <input type="text" id="modal-sku" readonly class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-emerald-400 font-mono focus:outline-none" />
+          <label class="block text-xs font-mono text-neutral-700 font-semibold mb-1">Selected Product SKU</label>
+          <input type="text" id="modal-sku" readonly class="w-full bg-neutral-100 border border-neutral-200 rounded-xl px-4 py-2.5 text-xs text-red-600 font-mono font-bold focus:outline-none" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">Restaurant / Kitchen Name *</label>
-          <input type="text" id="modal-brand" required placeholder="e.g. Copper Chimney or Salad Days" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-brand-500" />
+          <label class="block text-xs font-mono text-neutral-700 font-semibold mb-1">Restaurant / Kitchen Name *</label>
+          <input type="text" id="modal-brand" required placeholder="e.g. Copper Chimney or Salad Days" class="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-xs text-black placeholder-neutral-400 focus:outline-none focus:border-red-600" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">Location / Outlet City *</label>
-          <input type="text" id="modal-location" required placeholder="e.g. Bandra West, Mumbai" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-brand-500" />
+          <label class="block text-xs font-mono text-neutral-700 font-semibold mb-1">Location / Outlet City *</label>
+          <input type="text" id="modal-location" required placeholder="e.g. Bandra West, Mumbai" class="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-xs text-black placeholder-neutral-400 focus:outline-none focus:border-red-600" />
         </div>
 
         <div>
-          <label class="block text-xs font-mono text-slate-300 mb-1">WhatsApp Mobile Number *</label>
-          <input type="tel" id="modal-phone" required placeholder="10-digit mobile number" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-brand-500" />
+          <label class="block text-xs font-mono text-neutral-700 font-semibold mb-1">WhatsApp Mobile Number *</label>
+          <input type="tel" id="modal-phone" required placeholder="10-digit mobile number" class="w-full bg-white border border-neutral-300 rounded-xl px-4 py-2.5 text-xs text-black placeholder-neutral-400 focus:outline-none focus:border-red-600" />
         </div>
 
-        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-dark-950 font-bold text-xs tracking-wide transition flex items-center justify-center gap-2 mt-2">
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs tracking-wide transition flex items-center justify-center gap-2 mt-2 shadow-lg shadow-red-600/25">
           <span>📲</span> Open WhatsApp to Dispatch Sample
         </button>
       </form>
@@ -949,17 +880,14 @@
 
   <!-- JavaScript for Tabs & Modal -->
   <script>
-    // Category Filter Handler
     function filterCatalog(category, button) {
-      // Update Button Styles
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-brand-500', 'text-dark-950', 'shadow-md', 'shadow-brand-500/20');
-        btn.classList.add('glass-panel', 'text-slate-300');
+        btn.classList.remove('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-600/20');
+        btn.classList.add('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
       });
-      button.classList.add('bg-brand-500', 'text-dark-950', 'shadow-md', 'shadow-brand-500/20');
-      button.classList.remove('glass-panel', 'text-slate-300');
+      button.classList.add('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-600/20');
+      button.classList.remove('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
 
-      // Filter Cards
       const items = document.querySelectorAll('.product-item');
       items.forEach(card => {
         if (category === 'all' || card.dataset.cat === category) {
@@ -970,7 +898,6 @@
       });
     }
 
-    // Modal Handlers
     function openSampleModal(productName) {
       const modal = document.getElementById('sample-modal');
       const modalBox = document.getElementById('modal-box');
@@ -994,7 +921,6 @@
       }, 300);
     }
 
-    // Direct WhatsApp Dispatch Integration
     function handleModalSubmit(e) {
       e.preventDefault();
       const sku = document.getElementById('modal-sku').value;
@@ -1004,7 +930,6 @@
 
       const message = `Hi Terresa Team,%0A%0AI want to request a test sample kit for our kitchen:%0A• Product SKU: ${encodeURIComponent(sku)}%0A• Kitchen Name: ${encodeURIComponent(brand)}%0A• Location: ${encodeURIComponent(location)}%0A• Contact Phone: ${encodeURIComponent(phone)}%0A%0APlease let me know the dispatch timeline!`;
       
-      // Open WhatsApp directly with prefilled prompt (Change 919800000000 to your number)
       window.open(`https://wa.me/919800000000?text=${message}`, '_blank');
       closeSampleModal();
     }
