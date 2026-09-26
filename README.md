@@ -8,10 +8,17 @@ The platform operates across two dedicated commercial product divisions: **Certi
 
 ## 🚀 Live Deployments
 
-- **Production Site:** `https://terrasa-ventures.onrender.com` *(or custom domain `https://terrasa.in`)*
-- **Preview Deployment:** `https://terrasa-ventures.vercel.app`
-- **Lead Integration:** Direct WhatsApp Dispatch Desk (`+91 77100 74227`)
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://terrasa-ventures.vercel.app)
 
+* **Production URL:** [https://terrasa-ventures.vercel.app](https://terrasa-ventures.vercel.app)
+* **Hosting Platform:** Vercel Global Edge Network
+* **CI/CD:** Automatic production deployments connected to the GitHub repository
+
+### Development & Build
+
+* **Install dependencies:**
+  ```bash
+  npm install
 ---
 
 ## 📦 Commercial Product Architecture
